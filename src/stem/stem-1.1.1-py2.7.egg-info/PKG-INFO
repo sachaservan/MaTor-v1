@@ -1,0 +1,14 @@
+Metadata-Version: 1.1
+Name: stem
+Version: 1.1.1
+Summary: Stem is a python controller library for Tor <https://www.torproject.org/>.
+Like its predecessor, TorCtl, it uses Tor's control protocol to help
+developers program against the Tor process.
+Home-page: https://stem.torproject.org/
+Author: Damian Johnson
+Author-email: atagar@torproject.org
+License: LGPLv3
+Description: UNKNOWN
+Keywords: tor onion controller
+Platform: UNKNOWN
+Provides: stem
