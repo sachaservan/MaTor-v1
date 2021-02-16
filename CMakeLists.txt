@@ -1,9 +1,12 @@
-cmake_minimum_required(VERSION 2.8)
+cmake_minimum_required(VERSION 3.0)
 
 project(mator_project)
 
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake/Modules/")
 set(CXXFLAGS -O2)
+
+# https://stackoverflow.com/questions/31561309/cmake-warnings-under-os-x-macosx-rpath-is-not-specified-for-the-following-targe
+set(CMAKE_MACOSX_RPATH 1)
 
 IF(${CMAKE_SYSTEM_NAME} MATCHES "Linux")
     SET(OperatingSystem "Linux")
@@ -26,9 +29,7 @@ set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/${RELEASE_FOLDER}/lib)
 
 configure_file(src/config.cfg "${CMAKE_BINARY_DIR}/${RELEASE_FOLDER}/bin/config.cfg" COPYONLY)
 
-configure_file(src/construct_database.py  ${CMAKE_BINARY_DIR}/${RELEASE_FOLDER}/bin/construct_database.py COPYONLY)
-configure_file(src/download_consensus.py  ${CMAKE_BINARY_DIR}/${RELEASE_FOLDER}/bin/download_consensus.py COPYONLY)
-configure_file(src/longtime_analysis.py  ${CMAKE_BINARY_DIR}/${RELEASE_FOLDER}/bin/longtime_analysis.py COPYONLY)
+file(COPY data/ DESTINATION ${CMAKE_BINARY_DIR}/${RELEASE_FOLDER}/)
 file(COPY src/stem DESTINATION ${CMAKE_BINARY_DIR}/${RELEASE_FOLDER}/bin/)
 
 configure_file(data/2014-02-05-03-00-00-consensus ${CMAKE_BINARY_DIR}/${RELEASE_FOLDER}/data/2014-02-05-03-00-00-consensus COPYONLY)
