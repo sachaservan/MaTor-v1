@@ -29,10 +29,12 @@ To compile and build the MaTor executable (tested on macOS):
 	  ```export CXXFLAGS=-O2```
 
 3. go to the build directory: 
-    ```cd build```
-	  ```cd [your_path]/MATor/build```
-	  ```cmake .. ```
-    ```make```
+    ```
+    cd build
+    cd [your_path]/MATor/build
+    cmake ..
+    make
+    ```
 
 At this point the ```mator``` executable should be located in ```[your_path]/MATor/build/Release/bin/```
 
